@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>RA Catchup Signup</title>
+    <script defer src='index.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <form class="contact-form" id="contactForm" name="contactForm" onsubmit="return false;">
+        <div class="form-group">
+            <label class="form-label" for="user_fname">First Name</label>
+            <br>
+            <input class="form-control" id="user_fname" name="user_fname" type="text" placeholder="Enter First Name">
+            <br>
+            <label for="user_lname">Last Name</label>
+            <br>
+            <input class="form-control" id="user_lname" name="user_lname" type="text" placeholder="Enter Last Name">
+            <br>
+            <label for="user_email">Email address</label>
+            <br>
+            <input name="user_email" type="email" class="form-control" id="user_email" placeholder="Enter Email">
+            <br>
+            <label for="user_date">Date</label>
+            <br>
+            <input name="user_date" type="date" class="form-control" id="user_date">
+            <br>
+            <label for="user_time">Time</label>
+            <br>
+            <input name="user_time" type="time" class="form-control" id="user_time">
+            <br>
+            <label for="user_message">Note</label>
+            <br>
+            <textarea class="form-control" id="user_message" name="user_message" rows="3" cols="60"></textarea>
+        </div>
+        <button type="submit" class="contact-button">Submit</button>
+    </form>
+</body>
+</html>
