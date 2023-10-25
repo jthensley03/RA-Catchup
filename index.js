@@ -11,3 +11,19 @@ window.onload = function() {
                 });
     });
 }
+
+function createOption(value, text) {
+    var option = document.createElement('option');
+    option.text = text;
+    option.value = value;
+    return option;
+}
+
+var hourSelect = document.getElementById('hours');
+for(var i = 1; i <= 12; i++){
+    hourSelect.add(createOption(i, i));
+}
+
+var minutesSelect = document.getElementById('minutes');
+minutesSelect.add(createOption(0, "00"));
+minutesSelect.add(createOption(30, "30"));
