@@ -20,10 +20,13 @@
             <span class="br"></span>
             <input name="user_date" type="date" class="form-control" id="user_date">
             <span class="br"></span>
-            <select class="form-control" id="hours"></select><label for="minutes" class="form-label">  :  </label><select id="minutes" class="form-control"></select><label for="minutes" class="form-label">  PM</label>
+            <select class="form-control" id="hours" name="hours"></select>
+            <label for="minutes" class="form-label">  :  </label>
+            <select id="minutes" class="form-control" name="minutes"></select>
+            <select id="time_class" class="form-control" name="time_class"></select>
             <br>
             <span class="br"></span>
-            <textarea class="form-control" id="user_message" name="user_message" rows="3" placeholder="Note"></textarea>
+            <textarea class="form-control" id="user_note" name="user_note" rows="3" placeholder="Note"></textarea>
         </div>
         <button type="submit" class="contact-button">Submit</button>
     </form>
