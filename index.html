@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="index.css">
     <title>RA Catchup Signup</title>
     <script defer src='index.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.3.1/firebase-app-compat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.3.1/firebase-database-compat.js"></script>
 </head>
 <body>
     <form class="contact-form" id="contactForm" name="contactForm" onsubmit="return false;">
@@ -20,10 +22,7 @@
             <span class="br"></span>
             <input name="user_date" type="date" class="form-control" id="user_date">
             <span class="br"></span>
-            <select class="form-control" id="hours" name="hours"></select>
-            <label for="minutes" class="form-label">  :  </label>
-            <select id="minutes" class="form-control" name="minutes"></select>
-            <select id="time_class" class="form-control" name="time_class"></select>
+            <select class="form-control" id="time" name="time"></select>
             <br>
             <span class="br"></span>
             <textarea class="form-control" id="user_note" name="user_note" rows="3" placeholder="Note"></textarea>

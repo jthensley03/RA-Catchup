@@ -4,7 +4,8 @@
     color: white;
     padding: 10px 0;
     left: 50%;
-    transform: translate(-50%, 0);
+    top: 5%;
+    transform: translate(-50%, 100%) scale(300%);
 }
 .form-label {
     margin-top:10px;

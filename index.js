@@ -1,16 +1,17 @@
-emailjs.init('oI9cSzYQi-CbJD0OE');
+// Firebase
 
-window.onload = function() {
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        emailjs.sendForm('service_o0joyin', 'template_zqsknev', this)
-            .then(function() {
-                    console.log('SUCCESS!');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                });
-    });
-}
+const firebaseConfig = {
+  apiKey: "AIzaSyAOIEVXT9gVjVCxfAZdhEY9IOiEgshaxqg",
+  authDomain: "ra-catchup.firebaseapp.com",
+  projectId: "ra-catchup",
+  storageBucket: "ra-catchup.appspot.com",
+  messagingSenderId: "173324803962",
+  appId: "1:173324803962:web:6f816f19670f921c06c0c3",
+  measurementId: "G-YN475PRNEP"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
 
 function createOption(value, text) {
     var option = document.createElement('option');
@@ -19,15 +20,46 @@ function createOption(value, text) {
     return option;
 }
 
-var hourSelect = document.getElementById('hours');
-for(var i = 1; i <= 12; i++){
-    hourSelect.add(createOption(i, i));
+var timeSelect = document.getElementById('time');
+
+document.getElementById('user_date').addEventListener('change', (event) => {
+    console.log('hit event listener');
+    const edate = document.getElementById('user_date').value;
+    console.log(edate);
+    let edateArr = edate.split("-");
+    let month = edateArr[1];
+    let day = edateArr[2];
+    console.log(month + " " + day);
+    firebase.database().ref(month + "/" + day).once('value', snapshot => {
+        console.log("snapshot" + snapshot);
+        snapshot.forEach(function(childSnapshot) {
+            console.log(childSnapshot.key);
+            timeSelect.add(createOption(childSnapshot.key, childSnapshot.key));
+        });
+    });
+});
+
+function removeSlot(e) {
+    const edate = document.getElementById('user_date').value;
+    let time = document.getElementById('user_date').value;
+    let edateArr = edate.split("-");
+    let month = edateArr[1];
+    let day = edateArr[2];
+    firebase.database().ref(month + "/" + day).remove();
 }
 
-var minutesSelect = document.getElementById('minutes');
-minutesSelect.add(createOption(0, "00"));
-minutesSelect.add(createOption(30, "30"));
+// emailJS
+emailjs.init('oI9cSzYQi-CbJD0OE');
 
-var timeClassSelect = document.getElementById('time_class');
-timeClassSelect.add(createOption("AM", "AM"));
-timeClassSelect.add(createOption("PM", "PM"));
+window.onload = function() {
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_o0joyin', 'template_zqsknev', this)
+            .then(function() {
+                    console.log('SUCCESS!');
+                    removeSlot();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+    });
+}
