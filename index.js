@@ -58,8 +58,10 @@ window.onload = function() {
             .then(function() {
                     console.log('SUCCESS!');
                     removeSlot();
+                    document.getElementById('body').innerHTML = "<p>Thank you! You're all set</p>";
                 }, function(error) {
                     console.log('FAILED...', error);
+                    document.getElementById('body').innerHTML = "<p>Something went wrong, try again or contact Jason</p>";
                 });
     });
 }
