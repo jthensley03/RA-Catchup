@@ -59,10 +59,10 @@ window.onload = function() {
             .then(function() {
                     console.log('SUCCESS!');
                     removeSlot();
-                    document.body.innerHTML = "<p>Thank you! You're all set</p>";
+                    document.body.innerHTML = "<p class='submit-text'>Thank you!</p>";
                 }, function(error) {
                     console.log('FAILED...', error);
-                    document.body.innerHTML = "<p>Something went wrong, try again or contact Jason</p>";
+                    document.body.innerHTML = "<p class='submit-text'>Something went wrong, try again or contact Jason</p>";
                 });
     });
 }
