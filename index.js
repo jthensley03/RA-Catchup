@@ -41,7 +41,8 @@ document.getElementById('user_date').addEventListener('change', (event) => {
 
 function removeSlot(e) {
     const edate = document.getElementById('user_date').value;
-    let time = document.getElementById('user_date').value;
+    let time = document.getElementById('time').value;
+    console.log(time);
     let edateArr = edate.split("-");
     let month = edateArr[1];
     let day = edateArr[2];
@@ -58,7 +59,7 @@ window.onload = function() {
             .then(function() {
                     console.log('SUCCESS!');
                     removeSlot();
-                    document.getElementById('body').innerHTML = "<p>Thank you! You're all set</p>";
+                    document.body.innerHTML = "<p>Thank you! You're all set</p>";
                 }, function(error) {
                     console.log('FAILED...', error);
                     document.body.innerHTML = "<p>Something went wrong, try again or contact Jason</p>";
