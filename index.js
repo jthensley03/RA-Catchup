@@ -45,7 +45,7 @@ function removeSlot(e) {
     let edateArr = edate.split("-");
     let month = edateArr[1];
     let day = edateArr[2];
-    firebase.database().ref(month + "/" + day).remove();
+    firebase.database().ref(month + "/" + day + "/" + time).remove();
 }
 
 // emailJS
