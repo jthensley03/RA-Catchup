@@ -16,12 +16,12 @@
 .form-label {
     margin-top:10px;
     display:inline-block;
-    color: #353935;
     font-family: "MD Primer Bold",Rubik,Lato,"Lucida Grande","Lucida Sans Unicode",Tahoma,Sans-Serif;
+    color: #353935;
 }
 .form-control {
     font-family: "MD Primer Bold",Rubik,Lato,"Lucida Grande","Lucida Sans Unicode",Tahoma,Sans-Serif;
-    color:  #353935;
+    color: #353935;
 }
 body {
     background-color: #FFFDFA;
