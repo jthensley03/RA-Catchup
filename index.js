@@ -22,14 +22,19 @@ function createOption(value, text) {
 
 var timeSelect = document.getElementById('time');
 
+function removeOptions(selectElement) {
+   var i, L = selectElement.options.length - 1;
+   for(i = L; i >= 0; i--) {
+      selectElement.remove(i);
+   }
+}
+
 document.getElementById('user_date').addEventListener('change', (event) => {
-    console.log('hit event listener');
     const edate = document.getElementById('user_date').value;
-    console.log(edate);
     let edateArr = edate.split("-");
     let month = edateArr[1];
     let day = edateArr[2];
-    console.log(month + " " + day);
+    removeOptions(timeSelect);
     firebase.database().ref(month + "/" + day).once('value', snapshot => {
         console.log("snapshot" + snapshot);
         snapshot.forEach(function(childSnapshot) {
